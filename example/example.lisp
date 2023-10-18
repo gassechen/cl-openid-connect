@@ -78,7 +78,7 @@
 ;;;;;; Logout handler ;;;;;;
 
 (hunchentoot:define-easy-handler (cl-openid-connect:logout :uri "/logout") ()
-  (hunchentoot:redirect "https://mtkb2c.b2clogin.com/mtkb2c.onmicrosoft.com/b2c_1_login/oauth2/v2.0/logout?post_logout_redirect_uri=http://localhost:8000/"))
+  (hunchentoot:redirect "https://{TENANT}.b2clogin.com/{TENANT}.onmicrosoft.com/{USER-FLOW}/oauth2/v2.0/logout?post_logout_redirect_uri=http://localhost:8000/"))
 
 ;;;;;; Root handler ;;;;;;
 
