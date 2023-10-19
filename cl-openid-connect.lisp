@@ -1,11 +1,11 @@
 (defpackage :cl-openid-connect
-  (:use :cl :dexador :jose :hunchentoot :yason :ironclad :cl-base64 :str :jose/jwt)
-  (:export :select-random-item :random-string
+    (:export :select-random-item :random-string
            :set-openid-config :auth-token
            :OpenIDConfiguration :JWT
            :user-name :nonce
            :create-openid-configuration :get-openid-configuration :get-openid-key
            :get-api-token-access :get-call-api-data))
+
 
 (in-package :cl-openid-connect)
 
