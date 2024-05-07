@@ -1,16 +1,31 @@
 (defpackage :cl-openid-connect
-    (:export :select-random-item :random-string
-           :set-openid-config :auth-token
-           :OpenIDConfiguration :JWT
-           :user-name :nonce
-           :create-openid-configuration :get-openid-configuration :get-openid-key
-           :get-api-token-access :get-call-api-data))
+  (:use :cl :common-lisp-user)
+  (:export
+   :select-random-item
+   :random-string
+   :set-openid-config
+   :auth-token
+   :OpenIDConfiguration
+   :JWT
+   :user-name
+   :nonce
+   :create-openid-configuration
+   :get-openid-configuration
+   :get-openid-key
+   :get-api-token-access
+   :get-call-api-data))
 
 
 (in-package :cl-openid-connect)
 
 
 (defvar *charset* "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+
+(defvar *openid-config*)
+(defvar *tenant-name*)
+(defvar *user-flow*)
+(defvar *jwt*)
+(defvar *client-id*)
 
 
 (defun select-random-item (seq)
@@ -19,11 +34,8 @@
 
 (defun random-string (&optional (len 16))
   (map 'string
-       (lambda (x) (select-random-item *charset*))
+       (lambda (len) (select-random-item *charset*))
        (make-string len)))
-
-
-
 
 
 (defun set-openid-config () 
